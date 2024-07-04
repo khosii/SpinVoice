@@ -25,7 +25,7 @@ class Invoice:
         self.date = datetime.now()
         self.items = []
         self.comments = []
-
+        self.notes = []
 
     def add_item(self, name, price, tax):
         #trivial data objects 
@@ -57,6 +57,15 @@ class Invoice:
     def get_comments(self):
         """Return a string representation of all comments"""
         return "\n".join(self.comments)
+    
+
+    def add_note(self, note):
+        self.notes.append(note)
+
+
+    def get_notes(self):
+        return "\n".join(self.notes)
+    
     
 
 #Streamlit UI 
@@ -102,6 +111,10 @@ def main():
     if st.button("Show Comments"):
         comments = invoice.get_comments()
         st.text(comments)
+
+    if st.button("Show Notes"):
+        notes = invoice.get_notes()
+        st.text(notes)
 
 if __name__ == '__main__':
     main()

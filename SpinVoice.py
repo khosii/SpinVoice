@@ -22,7 +22,8 @@ class Invoice:
         # internally determined variables
         self.date = datetime.now()
         self.items = []
-        self.comments = []
+        self.comments = [] #List to store comments
+        self.notes = [] #List to store general purpose notes
 
 
     def add_item(self, name, price, tax):
@@ -61,6 +62,14 @@ class Invoice:
         """Return a string representation of all comments"""
         return "\n".join(self.comments)
 
+    def add_note(self, note):
+        """Add a general purpose note to the invoice"""
+        self.notes.append(note)
+
+    def get_notes(self):
+        """Return a string representation of all notes"""
+        return "\n".join(self.notes)
+    
     
 
 
